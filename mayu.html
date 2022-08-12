@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration from</title> 
+<script>
+function validateform()
+{
+    var fn=document.forms["regform"]["name"].value;
+    var ln=document.forms["regform"]["email"].value;
+    var pn=document.forms["regform"]["phone"].value;
+    var pass=document.forms["regform"]["password"].value;
+    var word=document.forms["regform"]["confirm password"].value;
+
+if (fn==null || fn=="")
+{
+alert("Name cannot be blank");
+return false;
+}
+else if (ln==null || ln==""){
+alert("Email cannot be blank");
+return false;
+}
+else if (ln=="@" || ln=="global.org" && ln=="navgurukul.org" && ln=="xyz.com"){
+alert("Enter your mail I'd")
+return false;
+}
+/*else if (pn>=10 && pn<=10){
+alert("Please enter your correct phone number");
+return false;
+}*/
+if((!pn.value.match(/^[1-9][0-9]{9}$/))){
+alert("please enter correct number");
+return false;
+}
+else if(pass<="A" && pass>="Z" && pass<="a" && pass>="z" && pass=="@" || pass>=0 || pass<=9){
+alert("Enter strong password");
+return false;
+}
+else if (pass!=word){
+alert("Password cannot match")
+return false;
+}
+}
+</script>
+<style>
+div
+{
+margin:0px auto;
+width: 30%;
+padding:30px;
+font-size: 20px;
+background-color: #006699;
+}
+input [type=text],select
+{
+width: 100px;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+font-size: 14px;
+}
+input[type=submit]
+{
+width: 100px;
+background-color: #003399;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;  
+}
+input[type=submit]:hover
+{
+background-color: #2f4f4f;
+}
+h1{
+color: blue;
+text-align: center;
+}
+div label{
+color: white;
+}
+</style>
+</head>
+<body>
+<h1>Registration Form</h1> 
+<div>
+<form name="regform" method="post" onsubmit="validateform()">
+    <label for="fname">Full Name</label>
+    <input type="text" id="fname" name="name" placeholder="Enter Name">
+
+    <label for="lemail">Email I'd</label>
+    <input type="text" id="lemail" name="email" placeholder="Enter Email">
+
+<label for="phone">Phone Number</label><br/>
+<input type="text" id="phone" name="Phone" placeholder="Enter Numbetr">
+
+<label for="password">Password</label><br/>
+<input type="text" id="password" name="password" placeholder="Enter Password">
+
+    <label for="confirm password">Confirm Password</label>
+    <input type="text" id="confirm password" name="Confirm password" placeholder="Confirm Password">
+
+    </select>
+    <input type="submit" value="Submit"> 
+</form>
+</div>
+</body>
+</html>
